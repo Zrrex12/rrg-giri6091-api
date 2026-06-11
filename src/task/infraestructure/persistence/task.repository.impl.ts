@@ -5,7 +5,7 @@ import { Injectable } from '@nestjs/common';
 @Injectable()
 export class TaskRepositoryImpl implements ITaskRepository {
     private tasks: Task[] = [];
-
+    
     async create(task: Task): Promise<Task> {
         this.tasks.push(task);
         return (task);
@@ -17,7 +17,13 @@ export class TaskRepositoryImpl implements ITaskRepository {
     }
     async findById(id: string): Promise<Task | null> {
         return this.tasks.find(task => task.id === id) || null;
-         
+        
     }
-
+    
+    update(task: Task): Promise<Task> {
+        throw new Error('Method not implemented.');
+    }
+    delete(id: string): Promise<boolean> {
+        throw new Error('Method not implemented.');
+    }
 }
