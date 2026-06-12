@@ -5,7 +5,7 @@ import { Task } from "../domain/task.entity";
 
 
 @Injectable()
-export class DeleteTaskByIdUseCase {
+export class DeleteTaskUseCase {
 
     constructor(
         @Inject(ITaskRepositoryToken) 

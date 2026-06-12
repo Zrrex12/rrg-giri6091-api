@@ -13,17 +13,22 @@ export class TaskRepositoryImpl implements ITaskRepository {
 
     async findAll(): Promise<Task[]> {
         return this.tasks;
-         
     }
     async findById(id: string): Promise<Task | null> {
         return this.tasks.find(task => task.id === id) || null;
         
     }
     
-    update(task: Task): Promise<Task> {
-        throw new Error('Method not implemented.');
+    async update(updateTask: Task): Promise<Task> {
+        const index = this.tasks.findIndex(t => t.id === updateTask.id);
+        this.tasks[index] = updateTask;
+        return Promise.resolve(updateTask);
     }
-    delete(id: string): Promise<boolean> {
-        throw new Error('Method not implemented.');
+
+    async delete(id: string): Promise<boolean> {
+        const index = this.tasks.findIndex(t => t.id === id);
+        if (index === -1) return false;
+        this.tasks.splice(index, 1);
+        return Promise.resolve(true);
     }
 }
