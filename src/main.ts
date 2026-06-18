@@ -37,3 +37,9 @@ async function bootstrap() {
   console.log("API is running on: http://localhost:3000/api/v1");
 }
 bootstrap();
+
+
+//!Uso de prisma para la conexión a la base de datos
+//? npm i -D prisma  
+//? npm i @prisma/client
+//? npx prisma init --datasource-provider postgresql
